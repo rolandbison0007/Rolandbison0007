@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Roland Bison Administration - loans, grants, benefits and insurance information.">
+<title>Roland Bison Administration | Financial & Insurance Services</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:#f5f7fa;color:#18202a}
+a{text-decoration:none;color:inherit}
+.container{max-width:1120px;margin:auto;padding:0 20px}
+header{background:#0b2942;color:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px #0002}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:72px}
+.logo{font-size:21px;font-weight:800}
+.logo span{color:#f4b942}
+nav{display:flex;gap:22px;align-items:center}
+nav a{font-size:14px;font-weight:600;color:#eaf2f8}
+nav a:hover{color:#f4b942}
+.menu{display:none;font-size:26px;cursor:pointer}
+.hero{background:linear-gradient(135deg,#0b2942,#155b82);color:white;padding:85px 0}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:45px;align-items:center}
+.hero h1{font-size:48px;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:#f4b942}
+.hero p{font-size:18px;color:#e6f0f6;max-width:650px;margin-bottom:28px}
+.btn{display:inline-block;background:#f4b942;color:#122334;padding:13px 22px;border-radius:7px;font-weight:800;border:0;cursor:pointer}
+.btn.secondary{background:#fff;color:#0b2942;margin-left:8px}
+.hero-card{background:#ffffff12;border:1px solid #ffffff33;border-radius:16px;padding:28px}
+.hero-card h3{margin-bottom:12px}
+.hero-card li{list-style:none;padding:8px 0;border-bottom:1px solid #ffffff22}
+section{padding:70px 0}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:32px;color:#0b2942}
+.section-title p{color:#65727e}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border-radius:14px;padding:26px;box-shadow:0 4px 18px #102a430f;border:1px solid #e7edf2}
+.card .icon{font-size:32px;margin-bottom:12px}
+.card h3{color:#0b2942;margin-bottom:8px}
+.card p{color:#65727e;margin-bottom:16px}
+.card a{color:#0d628d;font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{text-align:center;background:white;padding:25px;border-radius:14px}
+.num{width:42px;height:42px;border-radius:50%;background:#0b2942;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-weight:800}
+.about{background:#eaf1f5}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about h2{color:#0b2942;font-size:34px;margin-bottom:14px}
+.checks{margin-top:18px}
+.checks div{margin:10px 0}
+.form-wrap{background:#fff;border-radius:16px;padding:30px;box-shadow:0 4px 20px #102a4312}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+label{font-weight:700;font-size:14px;color:#334454}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #ccd6de;border-radius:7px;font:inherit}
+textarea{min-height:120px;resize:vertical}
+.notice{background:#fff7df;border-left:4px solid #f4b942;padding:14px;margin:20px 0;color:#5d4b20}
+.insurance{background:#0b2942;color:white}
+.insurance .section-title h2,.insurance .section-title p{color:white}
+.insurance .card{color:#18202a}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.contact-box{background:white;padding:25px;border-radius:14px}
+footer{background:#071d2e;color:#d8e3ea;padding:35px 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{color:white;margin-bottom:10px}
+footer p,footer li{font-size:14px;color:#b9c8d2;margin:6px 0}
+.disclaimer{border-top:1px solid #ffffff1c;margin-top:25px;padding-top:18px;font-size:12px;color:#93a7b4}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25d366;color:white;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 5px 18px #0003;z-index:999}
+@media(max-width:800px){
+ nav{display:none;position:absolute;top:72px;left:0;right:0;background:#0b2942;flex-direction:column;padding:18px}
+ nav.show{display:flex}.menu{display:block}
+ .hero-grid,.about-grid,.contact{grid-template-columns:1fr}
+ .hero h1{font-size:38px}
+ .cards,.steps{grid-template-columns:1fr}
+ form{grid-template-columns:1fr}.full{grid-column:auto}
+ .footer-grid{grid-template-columns:1fr}
+ .btn.secondary{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+  <a href="#home" class="logo">ROLAND <span>BISON</span> ADMINISTRATION</a>
+  <div class="menu" onclick="document.querySelector('nav').classList.toggle('show')">☰</div>
+  <nav>
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#loans">Loans</a>
+    <a href="#insurance">Insurance</a><a href="#apply">Apply</a><a href="#contact">Contact</a>
+  </nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+  <div>
+    <h1>Financial solutions for <span>your next step.</span></h1>
+    <p>Explore loan, grant, benefit and insurance information through Roland Bison Administration.</p>
+    <a class="btn" href="#apply">Start an Application</a>
+    <a class="btn secondary" href="#services">View Services</a>
+  </div>
+  <div class="hero-card">
+    <h3>Our Services</h3>
+    <ul>
+      <li>✓ Agricultural & farming loans</li>
+      <li>✓ Business financing</li>
+      <li>✓ Grant & benefit information</li>
+      <li>✓ Car insurance information</li>
+      <li>✓ Life insurance information</li>
+      <li>✓ Property insurance information</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<div class="section-title"><h2>What We Offer</h2><p>Simple access to information about financial and insurance services.</p></div>
+<div class="cards">
+ <div class="card"><div class="icon">🌾</div><h3>Agricultural Loans</h3><p>Financing information for eligible farmers and agricultural projects.</p><a href="#apply">Enquire →</a></div>
+ <div class="card"><div class="icon">💼</div><h3>Business Loans</h3><p>Explore financing options for business growth, equipment and working capital.</p><a href="#apply">Enquire →</a></div>
+ <div class="card"><div class="icon">🎁</div><h3>Grants & Benefits</h3><p>Learn about available opportunities and eligibility requirements.</p><a href="#apply">Learn more →</a></div>
+ <div class="card"><div class="icon">🚗</div><h3>Car Insurance</h3><p>Information to help you understand vehicle insurance options and coverage.</p><a href="#insurance">View details →</a></div>
+ <div class="card"><div class="icon">❤️</div><h3>Life Insurance</h3><p>Information about protection for you and the people who depend on you.</p><a href="#insurance">View details →</a></div>
+ <div class="card"><div class="icon">🏠</div><h3>Property Insurance</h3><p>Learn about protection options for eligible homes and properties.</p><a href="#insurance">View details →</a></div>
+</div>
+</div>
+</section>
+
+<section class="about">
+<div class="container about-grid">
+<div><h2>A straightforward way to get started.</h2><p>Tell us what service you are interested in and provide basic information. A representative can then guide you through the applicable requirements and next steps.</p>
+<div class="checks"><div>✓ Clear service categories</div><div>✓ Simple enquiry process</div><div>✓ Eligibility reviewed before approval</div></div></div>
+<div class="card"><h3>Important</h3><p>Submitting an enquiry does not guarantee a loan, grant, benefit or insurance coverage. Approval depends on the relevant provider's eligibility criteria, documentation, terms and applicable laws.</p></div>
+</div>
+</section>
+
+<section id="loans">
+<div class="container">
+<div class="section-title"><h2>Loan Process</h2><p>A simple three-step starting point.</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>Choose a Service</h3><p>Select the loan or financial service that matches your needs.</p></div>
+<div class="step"><div class="num">2</div><h3>Send an Enquiry</h3><p>Complete the basic form with accurate information.</p></div>
+<div class="step"><div class="num">3</div><h3>Review & Next Steps</h3><p>Receive information about applicable requirements and options.</p></div>
+</div>
+</div>
+</section>
+
+<section class="insurance" id="insurance">
+<div class="container">
+<div class="section-title"><h2>Insurance Information</h2><p>Choose the area you want to learn about.</p></div>
+<div class="cards">
+<div class="card"><h3>🚗 Car Insurance</h3><p>Coverage information for eligible vehicles, subject to policy terms and insurer requirements.</p></div>
+<div class="card"><h3>❤️ Life Insurance</h3><p>Protection options designed to help provide financial support to beneficiaries, subject to policy terms.</p></div>
+<div class="card"><h3>🏠 Property Insurance</h3><p>Information about protecting eligible buildings and property against covered risks.</p></div>
+</div>
+</div>
+</section>
+
+<section id="apply">
+<div class="container">
+<div class="section-title"><h2>Application / Enquiry Form</h2><p>Start with basic information. Do not submit passwords, PINs or banking credentials.</p></div>
+<div class="form-wrap">
+<form action="https://formspree.io/f/mnpqyaaz" method="POST">
+<input type="hidden" name="_subject" value="New Roland Bison Administration Enquiry">
+<div><label>Full Name<input required name="name" placeholder="Your full name"></label></div>
+<div><label>Phone Number<input required name="phone" placeholder="+233 ..."></label></div>
+<div><label>Email Address<input type="email" name="email" placeholder="you@example.com"></label></div>
+<div><label>Service<select required name="service"><option value="">Select a service</option><option>Agricultural Loan</option><option>Business Loan</option><option>Personal Loan</option><option>Grant / Benefit</option><option>Car Insurance</option><option>Life Insurance</option><option>Property Insurance</option></select></label></div>
+<div><label>Amount / Coverage Needed<input name="amount" placeholder="Optional"></label></div>
+<div><label>Location<input name="location" placeholder="City / Region"></label></div>
+<div class="full"><label>Message<textarea name="message" placeholder="Briefly tell us what you need..."></textarea></label></div>
+<div class="full"><label><input type="checkbox" required style="width:auto;margin-right:8px"> I confirm that the information provided is accurate and understand that this is an enquiry, not a guaranteed approval.</label></div>
+<div class="full"><button class="btn" type="submit">Submit Enquiry</button></div>
+</form>
+<div id="formMessage"></div>
+<div class="notice">For security, never enter your MoMo PIN, bank PIN, password, OTP or full card details in this form.</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-title"><h2>Contact Us</h2><p>Replace the sample details below with your real business contacts.</p></div>
+<div class="contact">
+<div class="contact-box"><h3>Roland Bison Administration</h3><p>📞 Phone: +233 XX XXX XXXX</p><p>✉️ Email: rolandbison5@gmail.com</p><p>📍 Location: Ghana</p></div>
+<div class="contact-box"><h3>Business Hours</h3><p>Monday – Friday: 8:00 AM – 5:00 PM</p><p>Saturday: 9:00 AM – 1:00 PM</p><p>Sunday: Closed</p></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-grid">
+<div><h3>Roland Bison Administration</h3><p>Financial and insurance information services.</p></div>
+<div><h3>Quick Links</h3><p><a href="#services">Services</a></p><p><a href="#apply">Apply / Enquire</a></p><p><a href="#contact">Contact</a></p></div>
+<div><h3>Security</h3><p>Never share your PIN, OTP, password or banking credentials.</p></div>
+</div>
+<div class="container disclaimer">
+<p><strong>Disclaimer:</strong> Roland Bison Administration is presented here as a private service/information website. It is not a government agency, bank, insurer, lender or grant authority unless separately and officially licensed/authorized. Loan, grant, benefit and insurance availability, eligibility, pricing, approval and coverage are subject to the applicable provider's terms, regulatory requirements and verification.</p>
+<p>© 2026 Roland Bison Administration. All rights reserved.</p>
+</div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/233XXXXXXXXX" aria-label="WhatsApp">☏</a>
+
+
+</body>
+</html>
